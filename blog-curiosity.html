@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Does a Computer Actually Run a Program? - Aavash Khadka</title><meta name="description" content="How Does a Computer Actually Run a Program? - Aavash Khadka"><meta name="theme-color" content="#14161c">
+<link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="mark" href="index.html" aria-label="Aavash Khadka — home">AK</a>
+  <nav class="keys" aria-label="Main"><a href="index.html">About</a><a href="blog.html" aria-current="page">Blog</a><a href="contact.html">Contact</a></nav>
+</header>
+<main id="main" class="section">
+    <a class="back-link" href="blog.html">← All posts</a>
+
+    <div class="article-header">
+      <span class="post-category">🔍 Curiosity</span>
+      <h1>How Does a Computer Actually Run a Program?</h1>
+      <span class="article-meta">Aug 10, 2026 · 6 min read</span>
+    </div>
+
+    <div class="prose">
+      <p>I've written <code>printf("Hello, World!")</code> more times than I can count. It never once occurred to me to ask what actually happens between saving that file and text showing up on my screen — until a few weeks into the semester, when it suddenly did. Here's the version of the answer that finally made it click for me.</p>
+
+      <h2>Step 1: Your code is not what the computer reads</h2>
+      <p>A CPU has no idea what <code>printf</code> means. It only understands one thing: a very specific set of binary instructions called machine code. Every language you write in — C, Python, whatever — has to be turned into that machine code before the processor can do anything with it.</p>
+      <p>There are two main ways this happens. A <strong>compiler</strong> (like <code>gcc</code> for C) reads your entire program up front and translates it into a standalone machine-code file before you ever run it. An <strong>interpreter</strong> (like Python's) reads and translates your code line by line, while it's running. It's the difference between translating an entire book before handing it over, versus a translator whispering in your ear sentence by sentence as you read live.</p>
+
+      <h2>Step 2: Getting into memory</h2>
+      <p>Once you have machine code, the operating system's <strong>loader</strong> takes over. It copies your program from storage into RAM, sets up a dedicated space for it, and hands control to the CPU at the program's starting instruction. This is the moment your program stops being a file and becomes a <em>process</em> — something the OS actively tracks and manages.</p>
+
+      <h2>Step 3: Fetch, decode, execute — on repeat</h2>
+      <p>This is the part that actually rewired how I think about programming. The CPU runs a relentless three-step loop, billions of times a second:</p>
+      <ul>
+        <li><strong>Fetch</strong> — grab the next instruction from memory, using a register called the program counter to know where it is</li>
+        <li><strong>Decode</strong> — figure out what that instruction is actually asking for</li>
+        <li><strong>Execute</strong> — do it: add two numbers, move data, compare values, jump somewhere else in the code</li>
+      </ul>
+      <p>Then the program counter moves forward, and the whole cycle repeats. Every "if" statement, every loop, every function call I've ever written eventually breaks down into millions of these tiny fetch-decode-execute steps. There's no magic step where the computer "understands" your program — it's just this loop, running fast enough to feel like understanding.</p>
+
+      <h2>Step 4: The operating system is quietly managing everything</h2>
+      <p>While your program runs, the OS is doing a lot of invisible work: deciding when your process gets CPU time versus every other running process, keeping its memory separate from everyone else's so one crash doesn't take down the whole system, and handling anything that touches hardware — like actually drawing that "Hello, World!" text onto your screen, which your program can't do directly at all.</p>
+
+      <blockquote>The output on my screen isn't the CPU "printing" anything. It's the end of a long, boring, extremely fast relay race between compiler, loader, CPU cycles, and operating system — and every one of those handoffs has to work perfectly, every single time.</blockquote>
+
+      <h2>Why this actually matters</h2>
+      <p>Understanding this loop changed how I debug. When something behaves strangely now, I don't just ask "what's wrong with my code" — I ask which layer the problem is actually in. Is it my logic? A compiler quirk? A memory issue? An OS-level permission problem? Most of computer engineering, it turns out, is learning to see through however many of these layers a problem is hiding in.</p>
+      <p>It's a small thing to finally understand properly. But it's the kind of small thing that makes every class after it make a little more sense.</p>
+    </div>
+  </main>
+<p class="site-footer">© 2026 Aavash Khadka — Kathmandu, Nepal</p>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setting Up My Engineering Laptop - Aavash Khadka</title><meta name="description" content="Setting Up My Engineering Laptop - Aavash Khadka"><meta name="theme-color" content="#14161c">
+<link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="mark" href="index.html" aria-label="Aavash Khadka — home">AK</a>
+  <nav class="keys" aria-label="Main"><a href="index.html">About</a><a href="blog.html" aria-current="page">Blog</a><a href="contact.html">Contact</a></nav>
+</header>
+<main id="main" class="section">
+    <a class="back-link" href="blog.html">← All posts</a>
+
+    <div class="article-header">
+      <span class="post-category">🛠️ Setup</span>
+      <h1>Setting Up My Engineering Laptop</h1>
+      <span class="article-meta">Aug 18, 2026 · 4 min read</span>
+    </div>
+
+    <div class="prose">
+      <p>My laptop is technically a gaming laptop — I bought it thinking about frame rates, not lecture notes. But it's also the only machine I've got, so over the last few weeks it's slowly turned into my actual engineering workstation. Here's what ended up making the cut, and why.</p>
+
+      <h2>The browser</h2>
+      <p>I use Brave day to day. Built-in ad and tracker blocking means fewer distractions during research, and it's Chromium-based so every extension and dev tool I need just works without compatibility headaches.</p>
+
+      <h2>The editor</h2>
+      <p>VS Code is doing almost all the heavy lifting. A handful of extensions cover most of what a first-year comp engineering syllabus throws at me:</p>
+      <ul>
+        <li><strong>C/C++</strong> and <strong>Python</strong> extensions for coursework and labs</li>
+        <li><strong>GitLens</strong> for actually understanding what a git blame is telling me</li>
+        <li><strong>Error Lens</strong> so mistakes show up inline instead of hiding in a separate panel</li>
+        <li>A couple of theme and icon packs, because staring at the same editor for six hours a day should at least look decent</li>
+      </ul>
+
+      <h2>Git and version control</h2>
+      <p>I set up SSH keys instead of typing a password on every push, added a global <code>.gitignore</code> so build files and IDE clutter never make it into a repo, and got in the habit of committing small and often. It felt like unnecessary ceremony for a one-person assignment at first — it stopped feeling that way the first time I needed to undo something.</p>
+      <pre><code>git config --global user.name "Aavash Khadka"
+git config --global user.email "your-email@example.com"
+git config --global init.defaultBranch main</code></pre>
+
+      <h2>The terminal</h2>
+      <p>Since switching to CachyOS, the terminal stopped being a last resort and became the fastest way to do most things — navigating folders, managing packages, running quick scripts. A clean prompt that shows my current git branch and directory at a glance has probably saved me more time than any GUI tool I've installed.</p>
+
+      <h2>Notes and organization</h2>
+      <p>Lecture notes, lab reports, and half-finished ideas all live in a simple folder-based notes system I keep on the laptop — plain markdown files, organized by subject, searchable from the terminal in seconds. Nothing fancy, but it means nothing gets lost between semesters.</p>
+
+      <h2>Everything else</h2>
+      <ul>
+        <li>A PDF reader that doesn't fight me over annotations</li>
+        <li>LibreOffice for reports that need to stay in a standard document format</li>
+        <li>A basic build toolchain (<code>gcc</code>, <code>make</code>) for C labs</li>
+        <li>And yes — Steam, still installed, for the evenings when the laptop gets to just be a gaming laptop again</li>
+      </ul>
+
+      <p>None of this is a particularly exotic setup. That's kind of the point — most of it is boring, reliable tooling that gets out of the way so I can actually focus on the coursework instead of fighting my own machine.</p>
+    </div>
+  </main>
+<p class="site-footer">© 2026 Aavash Khadka — Kathmandu, Nepal</p>
+<script src="script.js"></script>
+</body>
+</html>
